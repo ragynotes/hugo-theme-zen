@@ -1,0 +1,58 @@
+<h2>attachments</h2>
+
+<ul>
+
+{{ range .Resources.Match "*.bib" -}}
+	<li>🔖 BibTeX file: <strong><a href="{{ . }}">{{ . }}</a></strong>
+		<ul>
+			<li>can be imported into any citation manager</li>
+		</ul>
+	</li>
+{{ end -}}
+
+{{ range .Resources.Match "*.bibtex" -}}
+	<li>🔖 BibTeX: <strong><a href="{{ . }}">{{ . }}</a></strong>
+		<ul>
+			<li>can be imported into any citation manager</li>
+		</ul>
+	</li>
+{{ end -}}
+
+
+{{ range .Resources.Match "*.pdf" -}}
+	<li>📕 PDF: <strong><a href="{{ . }}">{{ . }}</a></strong>
+		<ul>
+			<li>may differ from original source document e.g. OCR added or redone, abridged to preserve only most relevant pages</li>
+			<li>Auto-generated may contain errors</li>
+		</ul>
+	</li>
+{{ end -}}
+
+
+{{ range .Resources.Match "*.txt" -}}
+	<li>📑 Plain Text: <strong><a href="{{ . }}">{{ . }}</a></strong>
+		<ul>
+		<li>Auto-generated from PDF and may contain errors</li>
+		</ul>	
+	</li>
+{{ end -}}
+
+
+{{ range .Resources.Match "*.md" -}}
+	<li>📑 Markdown text <strong><a href="{{ . }}">{{ . }}</a></strong>
+		<ul>
+		<li>Auto-generated from PDF and may contain errors</li>
+		</ul>	
+	</li>
+{{ end -}}
+
+
+{{ range .Resources.ByType "image" -}}
+	<li> <img src="{{ . }}" width="100px"> <a href="{{ . }}">download "<strong>{{ . }}</strong>" full size</a></li>
+{{ end -}}
+
+	<li>🧺 Did you know? You can download this entire website including all attachments from the <strong><a href="https://github.com/ragynotes/ragynotes.github.io">github repository</a></strong></li>
+
+</ul>
+
+
