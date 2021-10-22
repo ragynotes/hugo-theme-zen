@@ -1,8 +1,7 @@
 {{ range .Resources.ByType "image" -}}
 	
-<h3>images attached to this document</h3>	
+<h3>images attached to this document</h3>
+
 	<li>🖼️ <img src="{{ . }}" width="50px"></li>
 	<li>📄 <a href="{{ . }}">{{ . }}</a></li>
 {{ end -}}
-	
-</div>
