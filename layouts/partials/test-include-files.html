@@ -1,0 +1,73 @@
+Read directory contents: {{ range (readDir "./content") }}{{ .Name }} 🥣 {{ end }} 
+
+
+<strong>original: </strong> http://localhost:1313/collected-documents/biak-an-opium-substitute/bibliography.bib<br>
+
+content/{{ .File.Dir }}bibliography.bib
+
+<hr>
+
+{{ range .Resources.Match "*.bib" -}}
+	<li>🔖 BibTeX file: <strong><a href="{{ . }}">{{ . }}</a></strong>
+		<ul>
+			<li>can be imported into any citation manager</li>
+			<li>{{readFile "testfile.txt"}}<li> 
+		</ul>
+	</li>
+{{ end -}}
+
+<hr>
+
+<!--{{readFile "content/Collected-Documents/Biak-An-Opium-Substitute/bibliography.bib"}}-->
+
+{{readFile "testfile.txt"}}
+{{readFile "content/testfile.txt"}}
+{{readFile "content/Collected-Documents/Biak-An-Opium-Substitute/testfile.txt"}}
+
+<hr>
+
+content/{{ .File.Dir }}testfile.txt
+
+Read directory contents: {{ range (readDir ".") }}{{ .Name }} 🍚 {{ end }} 
+
+<hr>
+/Volumes/Five-Counter/GitHub/pskyhx/ragynotes.github.io/content/Collected-Documents/Biak-An-Opium-Substitute/bibliography.bib
+
+/Volumes/Five-Counter/GitHub/pskyhx/ragynotes.github.io/bibliography.bib
+
+<hr>
+
+attachments
+
+<ul>
+
+{{ range .Resources.Match "*.bib" -}}
+	<li>🔖 BibTeX file: <strong><a href="{{ . }}">{{ . }}</a></strong>
+		<ul>
+			<li>can be imported into any citation manager</li>
+		</ul>
+	</li>
+{{ end -}}
+
+</ul>
+
+
+<hr>
+
+
+<h2>🎀 DEMO: File variables</h2>
+<p>Documentation for file variables on [hugo site](https://gohugo.io/variables/files/)</p>
+<ul>
+
+<li><code>.</code>						{{ . }}</li>
+<li><code>LogicalName</code>			{{ .File.LogicalName }}</li>
+<li><code>TranslationBaseName</code>	{{ .File.TranslationBaseName }}</li>
+<li><code>ContentBaseName</code>		{{ .File.ContentBaseName }}</li>
+<li><code>BaseFileName</code>			{{ .File.BaseFileName }}</li>
+<li><code>Ext</code>					{{ .File.Ext }}</li>
+<li><code>Lang</code>					{{ .File.Lang }}</li>
+<li><code>Dir</code>					{{ .File.Dir }}</li>
+<li><code>UniqueID</code>				{{ .File.UniqueID }}</li>
+<li><code>Path</code>					{{ .File.Path }}</li>
+
+</ul>
